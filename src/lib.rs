@@ -1,8 +1,10 @@
+#![allow(warnings, unsafe_op_in_unsafe_fn, clippy::all)]
+
 use std::ffi::{CStr, CString};
 use std::path::Path;
 use std::sync::Mutex;
 
-include!(concat!("./generated", "/bindings.rs"));
+include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
 pub struct Office {
     handle: *mut LibreOfficeKit,
